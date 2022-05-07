@@ -18,7 +18,7 @@ module.exports = class User extends Sequelize.Model {
             }
         }, {
             sequelize,
-            timestamps: true,
+            timestamps: false,
             underscored: false,
             modelName: 'User',
             tableName: 'users',
@@ -28,5 +28,8 @@ module.exports = class User extends Sequelize.Model {
         });
     }
 
-    static associations(db) {}
+    static associate(db) {
+        db.User.hasMany(db.Post);
+        db.User.hasMany(db.Comment);
+    }
 };

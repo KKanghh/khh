@@ -2,14 +2,28 @@
 
 {% block content %}
 <main>
-    <ul>
+    <table>
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성시간</th>
         {% for post in posts %}
-        <li>
-            <a href="/post/{{post.id}}">
-                {{post.title}}
-            </a>
-        </li>
+        <tr>
+            <td>{{post.id}}</td>
+            <td>
+                <a href="/post/{{post.id}}">
+                    {{post.title}}
+                </a>
+            </td>
+            <td>{{post.User.nick}}</td>
+            <td>{{('0' + post.createdAt.getHours()).slice(-2)}}:{{('0' + post.createdAt.getMinutes()).slice(-2)}}:{{('0' + post.createdAt.getSeconds()).slice(-2)}}</td>
+        </tr>
         {% endfor %}
-    </ul>
+    </table>
+    <a href="/post/create">
+        <button>
+            글쓰기
+        </button>
+    </a>
 </main>
 {% endblock %}

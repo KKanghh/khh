@@ -8,4 +8,15 @@ header a {
     font-size: 30px;
     text-decoration: none;
     color: greenyellow;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#post-title {
+    width: 600px;
+    margin-bottom: 3px;
+}
+
+#post-content {
+    width: 600px;
+    min-height: 400px;
+    vertical-align: top;
 }

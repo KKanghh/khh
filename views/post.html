@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<main>
+    <form method="post" action="/post/create">
+        <label>제목</label>
+        <input type="text" id="post-title" name="title" maxlength="40" />
+        <br>
+        <label>내용</label>
+        <textarea id="post-content" name="content" maxlength="200"></textarea>
+        <br>
+        <input type="submit">
+    </form>
+</main>
+{% endblock %}
