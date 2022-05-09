@@ -9,12 +9,12 @@ router.route('/create')
         res.render('post');
     })
     .post(async (req, res) => {
-    await Post.create({
-        title: req.body.title,
-        content: req.body.content,
-        UserId: 1,
-    });
-    res.redirect('/');
+        await Post.create({
+            title: req.body.title,
+            content: req.body.content,
+            UserId: req.user.id,
+        });
+        res.redirect('/');
 })
 
 module.exports = router;
