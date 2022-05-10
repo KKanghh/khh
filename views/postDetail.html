@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h1 style="margin: 5px 0;">{{post.title}}</h1>
+<h4 style="border-bottom: 1px solid black; margin-top: 5px;">{{post.User.nick}}</h4>
+<div style="width: 500px; height: 300px; border: 1px solid black">{{post.content}}</div>
+
+<a href="/">
+    <button>목록</button>
+</a>
+{% if user %}
+<form action="/comment" method="post">
+    <div>
+        <label for="comment">댓글</label>
+        <input name="comment" type="text" id="comment">
+        <input type="submit" value="작성">
+        <input value="{{post.id}}" name="post" style="display: none;">
+    </div>
+</form>
+{% endif %}
+{% for comment in comments %}
+<div>{{comment.User.nick}}: {{comment.content}}</div>
+{% endfor %}
+{% endblock %}
